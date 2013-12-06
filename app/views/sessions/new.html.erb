@@ -1,0 +1,11 @@
+<h2>Login</h2>
+<div id="login-errors"></div>
+<div id="login-form" class="small-6 columns">
+	<%= form_for :session, :url => sessions_path, :remote => true do |f| %>
+		<p><%= f.email_field :email, :placeholder => "Email", :autofocus => true %></p>
+		<p><%= f.password_field :password, :placeholder => "Password" %></p>
+
+		<%= f.submit "Submit", :class => "button" %>
+		<%= link_to "Cancel", root_path, :class => "button alert" %>
+	<% end %>
+</div>

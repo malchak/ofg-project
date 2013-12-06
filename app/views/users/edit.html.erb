@@ -1,0 +1,15 @@
+
+<div id="edit-errors"></div>
+<div id="edit-form" class="small-9 columns center">
+<%= form_for @user, :html => { :action=> :update }, :remote => true do |f| %>
+	<p><%= f.text_field :first_name, :autofocus => true %></p>
+	<p><%= f.text_field :last_name %></p>
+	<p><%= f.email_field :email %></p>
+	<p><%= f.text_field :password, :placeholder => "Password" %></p>
+	<p><%= f.text_field :password_confirmation, :placeholder => "Re-enter Password" %></p>
+	<p><%= f.number_field :handicap %></p>
+
+	<%= f.submit "Submit", :class=> "button" %>
+	<%= link_to "Cancel", :back, :class => "button alert" %>
+<% end %>
+</div>

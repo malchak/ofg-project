@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "OldFartsGolf" %></title>
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/foundation/5.0.2/css/foundation.css">
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <header>
+    <nav class="top-bar">
+      <ul class="title-area">
+        <li class="name">
+          <h1><%= link_to "OldFartsGolf", root_path%></a></h1>
+        </li>
+      </ul>
+      <section class="top-bar-section">
+        
+        <% if current_user %>
+          <ul class="left">
+            <li><%= link_to "Dashboard" %></li>
+            <li><%= link_to "Profile", :controller => "users", :action => "show", :id => current_user.id %></li>
+          </ul>
+          <ul class="right">  
+            <li><%= link_to "Welcome, #{current_user.first_name}!", :controller => "users", :action => "show", :id => current_user.id %></li>
+            <li><%= link_to "Logout", session_path(session), :method => :delete %></li>
+          </ul>
+          <% else %>
+            <ul class="right">  
+              <li><%= link_to "Log In", new_session_path %></li>
+              <li><%= link_to "Sign Up", new_user_path %></li>
+            </ul>
+          <% end %>
+
+      </section>
+    <nav>
+  </header>
+  <body>
+    <div class="row">
+      <div class="small-11 small-centered columns">
+        <%= yield %>
+      </div>
+    </div>
+    
+  </body>
+</html>

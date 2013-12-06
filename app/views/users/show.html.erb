@@ -1,0 +1,58 @@
+<div class="row">
+	<div class="small-9 columns user-profile">
+		<h2><%= @user.full_name %>  <%= link_to '', edit_user_path(@user), :class => "fa fa-pencil-square-o" %></h2>
+		<span><%= @user.email %></span>
+		<hr>
+		<div id="profile-stats">
+			<ul class="breadcrumbs">
+				<li class="golf-stats"><a class="active">Playing Stats</a></li>
+			  <li class="betting-stats"><a>Betting Stats</a></li>
+			</ul>
+		</div>
+		<table class="betting-table">
+		  <tbody>
+		  	<th>Your Betting Statistics</th>
+		    <tr>
+		      <td>Rounds Played</td>
+		      <td><%= @user.rounds_played %></td>
+		    </tr>
+		    <tr>
+		      <td>Net Winnings</td>
+		      <td><i class="fa fa-usd"></i><%= @user.net_winnings %></td>
+		    </tr>
+		    <tr>
+		      <td>Winnings Per Round</td>
+		      <td><i class="fa fa-usd"></i><%=  %></td>
+		    </tr>
+		    <tr>
+		      <td>Biggest Win</td>
+		      <td><i class="fa fa-usd"></i><%= %></td>
+		    </tr>
+		    <tr>
+		      <td>Worst Loss</td>
+		      <td><i class="fa fa-usd"></i><%= @user.worst_loss %></td>
+		    </tr>
+		    <tr>
+		      <td>Avg Win</td>
+		      <td><i class="fa fa-usd"></i><%=  %></td>
+		    </tr>
+		    <tr>
+		      <td>Avg Loss</td>
+		      <td><i class="fa fa-usd"></i><%=  %></td>
+		    </tr>
+		  </tbody>
+		</table>
+		<table class="golf-table">
+			<th>Your Playing Statistics</th>
+			<tr>	
+				<td>golf table</td>
+			</tr>
+		</table>
+	</div>
+	<div class"small-2 columns">
+		<button class="new-round success">
+			<i class="fa fa-plus"></i>
+			New Round
+		</button>
+	</div>
+</div>

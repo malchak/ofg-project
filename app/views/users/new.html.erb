@@ -1,0 +1,15 @@
+<h2>Sign Up!</h2>
+<div id="signup-errors"></div>
+<div id="signup-form" class="small-9 columns center">
+<%= form_for @user, :url => users_path, :remote => true do |f| %>
+	<p><%= f.text_field :first_name, :placeholder => "First Name", :autofocus => true %></p>
+	<p><%= f.text_field :last_name, :placeholder => "Last Name" %></p>
+	<p><%= f.email_field :email, :placeholder => "example@email.com" %></p>
+	<p><%= f.password_field :password, :placeholder => "Create Password (min: 5 characters)" %></p>
+	<p><%= f.password_field :password_confirmation, :placeholder => "Re-enter Password" %></p>
+	<p><%= f.number_field :handicap, :placeholder => "Current Handicap (if applicable)" %></p>
+
+	<%= f.submit "Submit", :class=> "button" %>
+	<%= link_to "Cancel", root_path, :class => "button alert" %>
+<% end %>
+</div>
